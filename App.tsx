@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import {NativeBaseProvider, Text } from "native-base";
+
+import { useFonts, Inter_700Bold, Inter_400Regular } from "@expo-google-fonts/inter";
+import { dayTheme } from "@themes/dayTheme";
+
+import { Splash } from '@components/Splash';
+import { Routes } from '@routes/index';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  const [fontsLoaded] = useFonts({Inter_400Regular, Inter_700Bold})
+
+  return (
+      <NativeBaseProvider theme={dayTheme}>
+        { 
+          fontsLoaded ?
+          <Routes/> : 
+          <Splash/> 
+        }
+      </NativeBaseProvider>
+    );
+}
