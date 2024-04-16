@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import {NativeBaseProvider, Text } from "native-base";
+import {NativeBaseProvider } from "native-base";
 
 import { useFonts, Inter_400Regular, Inter_700Bold, Inter_900Black } from "@expo-google-fonts/inter";
 import { dayTheme } from "@themes/dayTheme";

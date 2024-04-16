@@ -13,6 +13,9 @@ export function Button({title, variant = "primary", ...rest}: Props){
             _pressed={{
                 bg: variant === "primary"? "green.600" : "gray.400"
             }}
+            _spinner={{
+                color: "gray.700"
+            }}
             {...rest}
         >
             <Text
