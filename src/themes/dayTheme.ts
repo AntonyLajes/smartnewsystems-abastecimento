@@ -21,10 +21,12 @@ export const dayTheme = extendTheme({
         sm: 14,
         md: 16,
         lg: 20,
-        xl: 28
+        xl: 28,
+        xxl: 36
     },
     fonts: {
         heading: 'Inter_700Bold',
-        body: 'Inter_400Regular'
+        body: 'Inter_400Regular',
+        black: 'Inter_900Black'
     }
 })
