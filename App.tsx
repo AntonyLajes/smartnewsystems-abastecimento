@@ -6,6 +6,7 @@ import { dayTheme } from "@themes/dayTheme";
 
 import { Splash } from '@components/Splash';
 import { Routes } from '@routes/index';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
 
@@ -13,8 +14,12 @@ export default function App() {
 
   return (
       <NativeBaseProvider theme={dayTheme}>
+        <StatusBar
+          style='dark'
+          translucent
+        />
         { 
-          !fontsLoaded ?
+          fontsLoaded ?
           <Routes/> : 
           <Splash/> 
         }

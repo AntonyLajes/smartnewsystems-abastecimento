@@ -1,4 +1,4 @@
-import { Text, VStack } from "native-base"
+import { Spinner, Text, VStack } from "native-base"
 import LogoSvg from "@assets/logo.svg"
 
 export function Splash(){
@@ -19,10 +19,13 @@ export function Splash(){
                 fontSize={"xxl"}
                 textTransform={"uppercase"}
                 fontFamily={"black"}
-                color={"green.600"}
+                color={"green.500"}
             >
                 ABASTECIMENTO
             </Text>
+            <Spinner
+                color={"green.600"}
+            />
         </VStack>
     )
 
