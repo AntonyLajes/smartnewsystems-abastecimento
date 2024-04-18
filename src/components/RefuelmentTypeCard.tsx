@@ -3,10 +3,11 @@ import { Box, HStack, Text, Button, IButtonProps } from "native-base";
 import TruckSvg from "@assets/truck.svg"
 
 type Props = IButtonProps & {
+    title: string,
     isPressed: boolean
 }
 
-export function RefuelmentTypeCard({isPressed, ...rest}: Props){
+export function RefuelmentTypeCard({title, isPressed, ...rest}: Props){
 
     return (
         <Button
@@ -41,7 +42,7 @@ export function RefuelmentTypeCard({isPressed, ...rest}: Props){
                     fontSize={"lg"}
                     fontFamily={"heading"}
                 >
-                    Interno
+                    {title}
                 </Text>
             </HStack>
         </Button>

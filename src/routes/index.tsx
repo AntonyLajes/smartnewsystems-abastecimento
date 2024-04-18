@@ -1,14 +1,19 @@
 import { NavigationContainer } from "@react-navigation/native";
 
-import { AuthRoutes } from "./auth.routes";
 import { AppRoutes } from "./app.routes";
+import { View } from "native-base";
 
 export function Routes(){
 
     return (
-        <NavigationContainer>
-            <AppRoutes/>
-        </NavigationContainer>
+        <View
+            flex={1}
+            bg={"gray.700"}
+        >
+            <NavigationContainer>
+                <AppRoutes/>
+            </NavigationContainer>
+        </View>
     )
 
 }
