@@ -24,16 +24,16 @@ export function AppRoutes(){
             }
         >
             <Screen
+                name="qrCodeReader"
+                component={QRCodeReader}
+            />
+            <Screen
                 name="newFueling"
                 component={NewRefueling}
             />
             <Screen
                 name="home"
                 component={Home}
-            />
-            <Screen
-                name="qrCodeReader"
-                component={QRCodeReader}
             />
         </Navigator>
     )

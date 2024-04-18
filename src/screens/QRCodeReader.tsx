@@ -3,6 +3,7 @@ import { Text, VStack } from "native-base"
 import { Header } from "@components/Header"
 import { QRCodeCamera } from "@components/QRCodeCamera"
 import { useState } from "react"
+import { Button } from "@components/Button"
 
 type Props = {
     variant?: "tanque" | "equipamento"
@@ -19,6 +20,7 @@ export function QRCodeReader({variant = "tanque"}: Props){
         <VStack
             bg={"gray.700"}
             px={8}
+            pb={8}
             flex={1}
         >
             <Header/>
@@ -38,6 +40,13 @@ export function QRCodeReader({variant = "tanque"}: Props){
                     scannedData={setScannedData}
                 />
             </VStack>
+            {
+                variant === "equipamento" &&
+                <Button
+                    title="Cancelar"
+                    variant={"secondary"}
+                />
+            }
         </VStack>
     )
 
