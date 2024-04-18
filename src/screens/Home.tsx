@@ -2,7 +2,7 @@ import { Header } from "@components/Header";
 import { Box, HStack, Heading, SectionList } from "native-base";
 
 import PlusSvg from "@assets/plus.svg"
-import { FuelmentCard } from "@components/FuelmentCard";
+import { RefuelmentCard } from "@components/RefuelmentCard";
 import { TouchableOpacity } from "react-native";
 
 export function Home(){
@@ -39,7 +39,7 @@ export function Home(){
             <SectionList
                 sections={data}
                 renderItem={({}) => (
-                    <FuelmentCard/>
+                    <RefuelmentCard/>
                 )}
                 renderSectionHeader={({section: {title}}) => (
                     <Heading
