@@ -15,6 +15,7 @@ export const dayTheme = extendTheme({
             600: '#282828',
             700: '#232323',
             800: '#1C1C1C',
+            "700-transparency": "rgba(35, 35, 35, 0.25)"
         }
     },
     fontSizes: {
