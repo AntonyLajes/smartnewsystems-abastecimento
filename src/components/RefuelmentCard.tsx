@@ -5,7 +5,7 @@ import UserSvg from "@assets/user.svg"
 import CalendarSvg from "@assets/calendar.svg"
 import { TouchableOpacity } from "react-native";
 
-export function FuelmentCard(){
+export function RefuelmentCard(){
 
     return (
         <TouchableOpacity
