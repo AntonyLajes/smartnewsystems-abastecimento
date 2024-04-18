@@ -1,20 +1,25 @@
+import { useState } from "react"
 import { Text, VStack } from "native-base"
+import { useNavigation, useRoute } from "@react-navigation/native"
 
 import { Header } from "@components/Header"
 import { QRCodeCamera } from "@components/QRCodeCamera"
-import { useState } from "react"
 import { Button } from "@components/Button"
 
-type Props = {
-    variant?: "tanque" | "equipamento"
+type RouteParams = {
+    variant: "tanque" | "equipamento"
 }
 
-export function QRCodeReader({variant = "tanque"}: Props){
+export function QRCodeReader(){
 
     const [scannedData, setScannedData] = useState<string>("")
+    const route = useRoute()
+    const { variant } = route.params as RouteParams
+    const navigation = useNavigation()
 
-    console.log(scannedData);
-    
+    function handleGoBack() {
+        navigation.goBack()
+    }
 
     return (
         <VStack
@@ -45,6 +50,7 @@ export function QRCodeReader({variant = "tanque"}: Props){
                 <Button
                     title="Cancelar"
                     variant={"secondary"}
+                    onPress={handleGoBack}
                 />
             }
         </VStack>
