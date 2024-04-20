@@ -2,16 +2,18 @@ import { IInputProps, Input as NativeBaseInput, Text, VStack, FormControl } from
 
 type Props = IInputProps & {
     title: string,
+    subtitle?: string,
     errorMessage ?: string | null
 }
 
-export function Input({errorMessage = null, isInvalid, title, ...rest}: Props){
+export function Input({errorMessage = null, isInvalid, title, subtitle, ...rest}: Props){
 
     const invalid = !!errorMessage || isInvalid
 
     return (
         <VStack
             space={1}
+            flex={1}
         >
             <Text
                 color={invalid ? "error.600" :"gray.100"}
@@ -31,7 +33,7 @@ export function Input({errorMessage = null, isInvalid, title, ...rest}: Props){
                     fontSize={"sm"}
                     color={"gray.100"}
                     placeholder={title}
-                    placeholderTextColor={"gray.500"}
+                    placeholderTextColor={"gray.300"}
                     _focus={{
                         borderColor: "green.600",
                         bg: "gray.800"
@@ -45,6 +47,15 @@ export function Input({errorMessage = null, isInvalid, title, ...rest}: Props){
                     {errorMessage}
                 </FormControl.ErrorMessage>
             </FormControl>
+            {
+                subtitle &&
+                <Text
+                    fontSize={"xsm"}
+                    color={"gray.300"}
+                >
+                    Anterior: {subtitle}
+                </Text>
+            }
         </VStack>
     )
 
