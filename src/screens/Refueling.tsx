@@ -1,13 +1,16 @@
-import { RefuelingStepsHeader } from "@components/RefuelingStepsHeader";
-import { Box, Divider, HStack, ScrollView, Text, VStack } from "native-base";
-import { RefuelingFirstStep } from "./RefuelingFirstStep";
-import { RefuelmentSteps } from "@components/RefuelmentSteps";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+
+import { Box, ScrollView, VStack } from "native-base";
+
+import { RefuelmentSteps } from "@components/RefuelmentSteps";
+import { RefuelingStepsHeader } from "@components/RefuelingStepsHeader";
 import { Button } from "@components/Button";
+
+import { RefuelingFirstStep } from "./RefuelingFirstStep";
 import { RefuelingSecondStep } from "./RefuelingSecondStep";
 import { RefuelingThirdStep } from "./RefuelingThirdStep";
 import { RefuelingFourthStep } from "./RefuelingFourthStep";
-import { useNavigation } from "@react-navigation/native";
 
 export function Refueling(){
 
