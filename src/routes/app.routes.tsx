@@ -3,6 +3,7 @@ import { NativeStackNavigationProp, createNativeStackNavigator } from "@react-na
 import { Home } from "@screens/Home"
 import { NewRefueling } from "@screens/NewRefueling"
 import { QRCodeReader } from "@screens/QRCodeReader"
+import { Refueling } from "@screens/Refueling"
 import { RefuelingFirstStep } from "@screens/RefuelingFirstStep"
 
 
@@ -12,7 +13,8 @@ type AuthRoutes = {
     },
     home: undefined,
     newFueling: undefined,
-    refuelingFirstStep: undefined
+    refuelingFirstStep: undefined,
+    refueling: undefined
 }
 
 export type AppNavigatorRoutesProps = NativeStackNavigationProp<AuthRoutes>
@@ -28,8 +30,12 @@ export function AppRoutes(){
                     headerShown: false
                 }
             }
-            initialRouteName="refuelingFirstStep"
+            initialRouteName="refueling"
         >
+            <Screen
+                name="refueling"
+                component={Refueling}
+            />
             <Screen
                 name="newFueling"
                 component={NewRefueling}

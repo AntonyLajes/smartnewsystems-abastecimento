@@ -1,8 +1,8 @@
-import { VStack, Button, Heading, Text } from "native-base";
+import { VStack, Button, Heading, Text, IButtonProps } from "native-base";
 
 import ArrowLeftSvg from "@assets/arrow-left.svg"
 
-export function RefuelingStepsHeader(){
+export function RefuelingStepsHeader({...rest}: IButtonProps){
     return (
         <VStack
             py={8}
@@ -18,6 +18,7 @@ export function RefuelingStepsHeader(){
                 _pressed={{
                     bg: "gray.500"
                 }}
+                {...rest}
             >
                 <ArrowLeftSvg
                     width={16}
