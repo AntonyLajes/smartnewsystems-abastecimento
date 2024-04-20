@@ -1,7 +1,9 @@
+import { useState } from "react";
+
+import { HStack, VStack } from "native-base";
+
 import { Input } from "@components/Input";
 import { Select } from "@components/Select";
-import { HStack, VStack } from "native-base";
-import { useState } from "react";
 
 export function RefuelingThirdStep(){
 

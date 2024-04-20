@@ -1,11 +1,12 @@
-import { Box, HStack, Image, Pressable, ScrollView, VStack } from "native-base";
+import { useState } from "react";
+
+import { HStack, Image, Pressable, ScrollView, VStack } from "native-base";
+
+import * as ImagePicker from "expo-image-picker"
 
 import AddSvg from "@assets/add.svg"
 
 import { Input } from "@components/Input";
-
-import * as ImagePicker from "expo-image-picker"
-import { useState } from "react";
 
 export function RefuelingFourthStep() {
 
