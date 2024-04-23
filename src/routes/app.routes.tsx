@@ -1,6 +1,7 @@
 import { NativeStackNavigationProp, createNativeStackNavigator } from "@react-navigation/native-stack"
 
 import { Home } from "@screens/Home"
+import { InsertPin } from "@screens/InsertPin"
 import { NewRefueling } from "@screens/NewRefueling"
 import { QRCodeReader } from "@screens/QRCodeReader"
 import { Refueling } from "@screens/Refueling"

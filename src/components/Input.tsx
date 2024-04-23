@@ -1,7 +1,7 @@
 import { IInputProps, Input as NativeBaseInput, Text, VStack, FormControl } from 'native-base'
 
 type Props = IInputProps & {
-    title: string,
+    title?: string,
     subtitle?: string,
     errorMessage ?: string | null
 }
