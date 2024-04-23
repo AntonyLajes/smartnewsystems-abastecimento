@@ -8,7 +8,7 @@ import { RefuelingSecondStep } from "./RefuelingSecondStep";
 import { RefuelingThirdStep } from "./RefuelingThirdStep";
 import { RefuelingFourthStep } from "./RefuelingFourthStep";
 import { useNavigation } from "@react-navigation/native";
-import InsertPin from "./InsertPin";
+import { InsertPin } from "./InsertPin";
 import BottomSheet from "@gorhom/bottom-sheet";
 
 export function Refueling() {

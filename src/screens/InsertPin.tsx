@@ -4,21 +4,44 @@ import { Box, HStack, Heading, VStack, IBoxProps, Text, View } from "native-base
 import BottomSheet, { BottomSheetBackdrop, BottomSheetView } from "@gorhom/bottom-sheet";
 
 import { Button } from "@components/Button";
-import { Input } from "@components/Input";
+import InputWithRef from "@components/InputWithRef";
+import { Keyboard } from "react-native";
 
 type Props = {
     bottomSheetRef: React.RefObject<BottomSheet>,
     handleClosePress: () => void | undefined
 }
 
-const InsertPin = forwardRef<BottomSheet, Props>((props: Props, ref) => {
+export function InsertPin({bottomSheetRef, handleClosePress}: Props){
 
     const snapPoints = useMemo(() => ["40%", "65%"], [])
 
-    const firstInputRef = useRef<any>(null)
-    const secondInputRef = useRef<any>(null)
+    const inputRefs = useRef<Array<React.MutableRefObject<any>>>([
+        useRef(null),
+        useRef(null),
+        useRef(null),
+        useRef(null),
+        useRef(null),
+        useRef(null)
+    ])
 
-    console.log(`log => ${firstInputRef.current}`);
+    const errorMessage: string | null = null
+    const isInvalid: boolean = false
+
+    const invalid = !!errorMessage || isInvalid
+
+    const handleInputTextChange = (index: number) => (text: string) => {
+        const nextIndex = index + 1
+        const prevIndex = index - 1
+
+        if(text.length === 1 && index < inputRefs.current.length - 1){
+            inputRefs.current[nextIndex].current?.focus()
+        }else if(text.length === 0 && prevIndex >= 0){
+            inputRefs.current[index].current?.focus()
+        }else{
+            Keyboard.dismiss()
+        }
+    }
 
     const renderBackdrop = useCallback(
         (props: any) => (
@@ -33,23 +56,13 @@ const InsertPin = forwardRef<BottomSheet, Props>((props: Props, ref) => {
 
     const handleSheetChanges = useCallback((index: number) => {
         if (index === -1) {
-            props.handleClosePress()
+            handleClosePress()
         }
-    }, [props]);
-
-    const handleChangeFirstInput = (text: string) => {
-        console.log(text)
-        console.log(firstInputRef.current)
-        console.log(secondInputRef.current)
-
-        if (text.length === 1 && secondInputRef.current) {
-            secondInputRef.current.focus()
-        }
-    }
+    }, []);
 
     return (
         <BottomSheet
-            ref={props.bottomSheetRef}
+            ref={bottomSheetRef}
             index={1}
             snapPoints={snapPoints}
             backdropComponent={renderBackdrop}
@@ -70,6 +83,7 @@ const InsertPin = forwardRef<BottomSheet, Props>((props: Props, ref) => {
                 <VStack
                     flex={1}
                     py={8}
+                    justifyContent={"space-between"}
                 >
                     <Heading
                         color={"gray.100"}
@@ -79,14 +93,30 @@ const InsertPin = forwardRef<BottomSheet, Props>((props: Props, ref) => {
                         Inserir o PIN
                     </Heading>
 
-                    <HStack>
-                        <Input
-                            ref={firstInputRef}
-                            placeholder="000-000"
-                            textAlign={"center"}
-                            onChangeText={handleChangeFirstInput}
-                        />
-                    </HStack>
+                    <VStack
+                        space={1}
+                    >
+                        <Text
+                            color={invalid ? "error.600" :"gray.100"}
+                            fontSize={"sm"}
+                        >
+                            Digite o PIN:
+                        </Text>
+                        <HStack>
+                            {
+                                inputRefs.current.map((ref, index) => (
+                                    <InputWithRef
+                                        key={index}
+                                        fontSize={"lg"}
+                                        textAlign={"center"}
+                                        placeholder="0"
+                                        onChangeText={handleInputTextChange(index)}
+                                        forwardRef={ref}
+                                    />
+                                ))
+                            }
+                        </HStack>
+                    </VStack>
                     <VStack
                         space={1}
                         py={8}
@@ -94,7 +124,7 @@ const InsertPin = forwardRef<BottomSheet, Props>((props: Props, ref) => {
                         <Button
                             title={"Cancelar"}
                             variant={"secondary"}
-                            onPress={props.handleClosePress}
+                            onPress={handleClosePress}
                         />
                         <Button
                             title={"Verificar"}
@@ -105,6 +135,4 @@ const InsertPin = forwardRef<BottomSheet, Props>((props: Props, ref) => {
             </BottomSheetView>
         </BottomSheet>
     )
-})
-
-export default InsertPin
+}

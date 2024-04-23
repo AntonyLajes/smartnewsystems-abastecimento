@@ -12,7 +12,7 @@ export function Routes(){
             bg={"gray.700"}
         >
             <NavigationContainer>
-                <AuthRoutes/>
+                <AppRoutes/>
             </NavigationContainer>
         </View>
     )
