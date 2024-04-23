@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import { AppRoutes } from "./app.routes";
 import { View } from "native-base";
+import { AuthRoutes } from "./auth.routes";
 
 export function Routes(){
 
@@ -11,7 +12,7 @@ export function Routes(){
             bg={"gray.700"}
         >
             <NavigationContainer>
-                <AppRoutes/>
+                <AuthRoutes/>
             </NavigationContainer>
         </View>
     )

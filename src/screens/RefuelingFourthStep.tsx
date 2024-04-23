@@ -38,7 +38,7 @@ export function RefuelingFourthStep() {
                     space={2}
                 >
                     {
-                        photos.map((value, index) => (
+                        photos.map((value) => (
                             <Image
                                 size={20}
                                 rounded={"8"}
